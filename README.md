@@ -6,7 +6,7 @@
 
 2- Descarga el codigo a tu maquina haciendo un clone de este repositorio.
 
-3-Dirigirse al directorio "/movies-api" dentro de la carpeta descargada y en la terminal ejecutar el comando:  npm run dev
+3-Dirigirse al directorio "/movies-api" dentro de la carpeta descargada y en la terminal ejecutar el comando:  ```npm run dev```
 
 4-Se podra acceder al servicio mediante el navegador desde: http://localhost:8000
 
