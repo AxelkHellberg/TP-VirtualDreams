@@ -14,5 +14,5 @@
 
 1- Una vez ya descargado el codigo, dirigirse al directorio principal.
 
-2- En la terminal ejecutar el comando: node mostrarPersonas.js
+2- En la terminal ejecutar el comando: ```node mostrarPersonas.js```
 
