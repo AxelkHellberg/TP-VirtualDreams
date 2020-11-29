@@ -20,7 +20,7 @@
             <input class="input" type="text" id="apellido" placeholder=" Apellido" required>
             <input class="input" type="text" id="dni" placeholder=" DNI" required>
             <div class="btn__form">
-				<button class="btn__submit" id="enviar" onClick="reqPostMasLinda()"> ENVIAR </button>
+				<button class="btn__submit" id="enviar" onClick="reqPost()"> ENVIAR </button>
             	<input class="btn__reset" id="limpiar" type="reset" value="LIMPIAR">	
 			</div>
 		</form>
@@ -30,10 +30,8 @@
 </html>
 
 <script> 
-//Fetch
 
-
-function reqPostMasLinda() {
+function reqPost() {
 	
 	event.preventDefault(); ///invesitifar
 
@@ -56,47 +54,6 @@ function reqPostMasLinda() {
 				document.getElementById("confirmacion").innerHTML = "Error codigo: "+ data.status;
 			}
 		  });
-/* 		.then(respuesta => respuesta.text() )
-		.then(respuesta => console.log(respuesta.JSON.stringify()))
-		.catch( function (err) {
-			console.log(err);
-		}) */
 }
-
-/* function reqPost() {
-	var http = new XMLHttpRequest();
-var url = "/";
-var nombre = document.getElementById('nombre');
-var apellido = document.getElementById('apellido');
-var dni = document.getElementById('dni');
-http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-http.open("POST", url, true);
-console.log('Se realizo el POST');
-http.onreadystatechange = function() {
-    if(http.status == 200) { 
-		console.log('Se realizo el POST');
-       alert(http.responseText);
-    }
-}
-http.send(JSON.stringify({nombre: nombre, apellido: apellido, dni: dni}));
-} */
-/* $('#enviar').click(function(){
-	var data = { nombre : $('#nombre').val(), apellido : $('#apellido').val(), dni : $('#dni').val() };
-	$.ajax({
-			url : 'https://reclutamiento-14cf7.firebaseio.com/personas.json ',
-			data : data, 
-			method : 'post', 
-			dataType : 'json',
-			success : function(response){
-				   console.log('Se realizo el POST');//codigo de exito
-			},
-			error: function(error){
-				   console.log('ERROR');//codigo error
-			}
-	});
-}); */
-
-
-
 
 </script>

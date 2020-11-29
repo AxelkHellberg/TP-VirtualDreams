@@ -45,7 +45,7 @@ app.post('/', function(req, res) {
         });
         
     } else {
-    res.status(estado).send('Something broke!');
+    res.status(estado).send('Error');
     }
 })
 
