@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+	<link rel="stylesheet" href="./css/main.css">
+	<title>crearPersonas</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="form__top">
+			<h2>Crear <span>Personas</span></h2>
+			<p class="mensj" id="confirmacion">
+		</div>		
+		<form class="form__reg" action="">
+			<input class="input" type="text" id="nombre" placeholder=" Nombre" autofocus>
+            <input class="input" type="text" id="apellido" placeholder=" Apellido" required>
+            <input class="input" type="text" id="dni" placeholder=" DNI" required>
+            <div class="btn__form">
+				<button class="btn__submit" id="enviar" onClick="reqPostMasLinda()"> ENVIAR </button>
+            	<input class="btn__reset" id="limpiar" type="reset" value="LIMPIAR">	
+			</div>
+		</form>
+	</div>
+	
+</body>
+</html>
+
+<script> 
+//Fetch
+
+
+function reqPostMasLinda() {
+	
+	event.preventDefault(); ///invesitifar
+
+	var nom = document.getElementById('nombre').value;
+	var ap = document.getElementById('apellido').value;
+	var doc = parseInt(document.getElementById('dni').value);
+
+	var info = { nombre: nom, apellido: ap, dni: doc };
+	var myInit = { method: 'POST',
+					headers: {"content-type": "application/json"} ,
+					 body: JSON.stringify(info) };
+
+	var myRequest = fetch('/', myInit)
+		.then(response => response)
+  		.then(function (data) {
+			console.log(data)
+			if(data.status == 201){
+				document.getElementById("confirmacion").innerHTML = "Persona creada corectamente!";
+			} else {
+				document.getElementById("confirmacion").innerHTML = "Error codigo: "+ data.status;
+			}
+		  });
+/* 		.then(respuesta => respuesta.text() )
+		.then(respuesta => console.log(respuesta.JSON.stringify()))
+		.catch( function (err) {
+			console.log(err);
+		}) */
+}
+
+/* function reqPost() {
+	var http = new XMLHttpRequest();
+var url = "/";
+var nombre = document.getElementById('nombre');
+var apellido = document.getElementById('apellido');
+var dni = document.getElementById('dni');
+http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+http.open("POST", url, true);
+console.log('Se realizo el POST');
+http.onreadystatechange = function() {
+    if(http.status == 200) { 
+		console.log('Se realizo el POST');
+       alert(http.responseText);
+    }
+}
+http.send(JSON.stringify({nombre: nombre, apellido: apellido, dni: dni}));
+} */
+/* $('#enviar').click(function(){
+	var data = { nombre : $('#nombre').val(), apellido : $('#apellido').val(), dni : $('#dni').val() };
+	$.ajax({
+			url : 'https://reclutamiento-14cf7.firebaseio.com/personas.json ',
+			data : data, 
+			method : 'post', 
+			dataType : 'json',
+			success : function(response){
+				   console.log('Se realizo el POST');//codigo de exito
+			},
+			error: function(error){
+				   console.log('ERROR');//codigo error
+			}
+	});
+}); */
+
+
+
+
+</script>
